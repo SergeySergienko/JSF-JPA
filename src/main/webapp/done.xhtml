@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Сергей
+  Date: 04.09.2016
+  Time: 18:59
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Car Registration</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h4>Car Done Form</h4>
+        <table>
+            <tr>
+                <td>Car Id:</td>
+                <td>
+                    <h:outputText value="#{carBean.id}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Car Model:</td>
+                <td>
+                    <h:outputText value="#{carBean.model}"/>
+                </td>
+            </tr>
+            <tr bgcolor="#{carBean.color}">
+                <td>Car color:</td>
+                <td>
+                    <h:outputText value="#{carBean.color}"/>
+                </td>
+            </tr>
+        </table>
+    </h:form>
+</h:body>
+
+</html>

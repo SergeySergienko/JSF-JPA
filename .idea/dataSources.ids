@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - test_db@localhost" uuid="0bcf3ff7-4137-4b53-9005-8dfd3d43da6b">
+    <database-info product="MySQL" version="5.7.10-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="test_db"/>
+    <table name="cup" schema="" catalog="test_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="season_year" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_6574380fbe804050816d93eacff" table="petition" schema="" catalog="test_db" columns="cup_id"/>
+      <exported-key name="FK_86ca2a57e6f3419fa1e53b77f3a" table="petition" schema="" catalog="test_db" columns="cup_id"/>
+    </table>
+    <table name="game" schema="" catalog="test_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_7326f710f45a40c1953d5dce36c" table="sparring" schema="" catalog="test_db" columns="game_id"/>
+    </table>
+    <table name="igrok" schema="" catalog="test_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_1c7f0b2a2a8f415bb7fb3ce2de4" table="zayavka" schema="" catalog="test_db" columns="igrok_id"/>
+    </table>
+    <table name="komanda" schema="" catalog="test_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_e99c9cf3f1f14214a97dbb61402" table="zayavka" schema="" catalog="test_db" columns="komanda_id"/>
+    </table>
+    <table name="league" schema="" catalog="test_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sort" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="petition" schema="" catalog="test_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cup_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="league" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="team_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_0ecba5e94b4544ffa892ba9b4a7" columns="team_id" ref-table="team" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_6574380fbe804050816d93eacff" columns="cup_id" ref-table="cup" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_6ba8051a853a4b619b140d192fb" columns="team_id" ref-table="team" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_86ca2a57e6f3419fa1e53b77f3a" columns="cup_id" ref-table="cup" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_1f2237aeb8a947ed96649938410" table="squad" schema="" catalog="test_db" columns="petition_id"/>
+      <index name="FK_0ecba5e94b4544ffa892ba9b4a7" unique="false" columns="team_id"/>
+      <index name="FK_6574380fbe804050816d93eacff" unique="false" columns="cup_id"/>
+      <index name="FK_6ba8051a853a4b619b140d192fb" unique="false" columns="team_id"/>
+      <index name="FK_86ca2a57e6f3419fa1e53b77f3a" unique="false" columns="cup_id"/>
+    </table>
+    <table name="player" schema="" catalog="test_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="birthday" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="f_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="l_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="m_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_b5c495f7035d4304b077eb52bc8" table="squad" schema="" catalog="test_db" columns="player_id"/>
+    </table>
+    <table name="sparring" schema="" catalog="test_db" type="TABLE">
+      <column name="game_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="team_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="game_id,team_id"/>
+      <foreign-key name="FK_0d667db340ab448a8aea0cadb7f" columns="team_id" ref-table="team" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_7326f710f45a40c1953d5dce36c" columns="game_id" ref-table="game" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_0d667db340ab448a8aea0cadb7f" unique="false" columns="team_id"/>
+      <index name="FK_7326f710f45a40c1953d5dce36c" unique="false" columns="game_id"/>
+    </table>
+    <table name="squad" schema="" catalog="test_db" type="TABLE">
+      <column name="petition_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="player_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <foreign-key name="FK_1f2237aeb8a947ed96649938410" columns="petition_id" ref-table="petition" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_b5c495f7035d4304b077eb52bc8" columns="player_id" ref-table="player" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_1f2237aeb8a947ed96649938410" unique="false" columns="petition_id"/>
+      <index name="FK_b5c495f7035d4304b077eb52bc8" unique="false" columns="player_id"/>
+    </table>
+    <table name="team" schema="" catalog="test_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_0ecba5e94b4544ffa892ba9b4a7" table="petition" schema="" catalog="test_db" columns="team_id"/>
+      <exported-key name="FK_6ba8051a853a4b619b140d192fb" table="petition" schema="" catalog="test_db" columns="team_id"/>
+      <exported-key name="FK_0d667db340ab448a8aea0cadb7f" table="sparring" schema="" catalog="test_db" columns="team_id"/>
+    </table>
+    <table name="turnir" schema="" catalog="test_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_753dc72b28ba419d9c4c5b2566c" table="zayavka" schema="" catalog="test_db" columns="turnir_id"/>
+    </table>
+    <table name="zayavka" schema="" catalog="test_db" type="TABLE">
+      <column name="komanda_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="igrok_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="turnir_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="turnir_id,komanda_id"/>
+      <foreign-key name="FK_1c7f0b2a2a8f415bb7fb3ce2de4" columns="igrok_id" ref-table="igrok" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_753dc72b28ba419d9c4c5b2566c" columns="turnir_id" ref-table="turnir" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_e99c9cf3f1f14214a97dbb61402" columns="komanda_id" ref-table="komanda" ref-schema="" ref-catalog="test_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_1c7f0b2a2a8f415bb7fb3ce2de4" unique="false" columns="igrok_id"/>
+      <index name="FK_753dc72b28ba419d9c4c5b2566c" unique="false" columns="turnir_id"/>
+      <index name="FK_e99c9cf3f1f14214a97dbb61402" unique="false" columns="komanda_id"/>
+    </table>
+  </data-source>
+  <data-source name="MySQL - car_db@localhost" uuid="d05bd9ec-3d74-4271-ab17-70a166a99e9b">
+    <database-info product="MySQL" version="5.7.10-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="car_db"/>
+    <table name="car" schema="" catalog="car_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="model" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="color" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
+</component>
